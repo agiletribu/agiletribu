@@ -17,7 +17,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "http://bbl-backend.eu01.aws.af.cm/mail",
+                url: "http://nodemailsender.herokuapp.com/mail",
                 type: "POST",
                 contentType: "application/x-www-form-urlencoded; charset=utf-8",
                 data: {
