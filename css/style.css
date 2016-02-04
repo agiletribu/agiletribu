@@ -862,11 +862,28 @@ ul.cat li a.active {
     background-color: #308b86;
     border-color: #308b86;
 }
+
 .color:focus,
 .color:hover {
     border-color: #333333;
     background-color: #308b86;
 }
+
+.actionColor {
+    background-color: #FFCC33;
+    border-color: #FFCC33;
+}
+
+.actionColor:hover,
+.actionColor:focus, 
+.actionColor:active, 
+.actionColor.active{
+  color: #fff;
+  background-color: #FFBC23;
+  border-color: #EFBC23;
+  padding: 10px 35px; 
+}
+
 /* Formateur Section */
 #tf-home .overlay-formateur {
     padding: 5% 0;
