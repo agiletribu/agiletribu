@@ -882,9 +882,9 @@ ul.cat li a.active {
 .actionColor:active, 
 .actionColor.active{
   color: #fff;
-  background-color: #FFCC33;
+  background-color: #FFC329;
   border-color: #FFCC33;
-  padding: 10px 35px; 
+  padding: 10px 30px; 
 }
 
 /* Formateur Section */
