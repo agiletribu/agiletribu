@@ -848,16 +848,19 @@ ul.cat li a.active {
     word-spacing: 2px;
     font-weight: 700;
     padding: 10px 20px;
-    background-color: #333333;
     text-transform: uppercase;
     border-color: #333333;
     transition: all 0.5s;
 }
-.tf-btn:focus,
-.tf-btn:hover {
+.btn-primary{
+    background-color: #333333;
+}
+.tf-primary:focus,
+.tf-primary:hover {
     background-color: #333333;
     border-color: #308b86;
 }
+
 .color {
     background-color: #308b86;
     border-color: #308b86;
@@ -870,8 +873,8 @@ ul.cat li a.active {
 }
 
 .actionColor {
-    background-color: #FFCC33;
-    border-color: #FFCC33;
+    background-color: #FFBC23;
+    border-color: #EFBC23;
 }
 
 .actionColor:hover,
@@ -879,8 +882,8 @@ ul.cat li a.active {
 .actionColor:active, 
 .actionColor.active{
   color: #fff;
-  background-color: #FFBC23;
-  border-color: #EFBC23;
+  background-color: #FFCC33;
+  border-color: #FFCC33;
   padding: 10px 35px; 
 }
 
