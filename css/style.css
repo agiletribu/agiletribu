@@ -1151,3 +1151,22 @@ ul.meta-tags li:last-child:after { content: ' ' }
 .comment form { margin-top: -30px }
 .comment input,
 .comment textarea { margin-bottom: 15px }
+
+/* Formation */
+.figure {
+    overflow: hidden;
+}
+.photo-fix-sized {
+    height: 300px;
+
+    -webkit-filter: sepia(0);
+    filter: sepia(0);
+
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.photo-fix-sized:hover {
+    -webkit-filter: sepia(75%);
+    filter: sepia(75%);
+}
+
