@@ -1,8 +1,4 @@
-// Hello.
-//
-// This is The Scripts used for ___________ Theme
-//
-//
+
 
 function main() {
 
@@ -88,46 +84,8 @@ function main() {
   	 
   	});
 
-    /*====================================
-    Portfolio Isotope Filter
-    ======================================*/
-    $(window).load(function() {
-        var $container = $('#itemsWork , #itemsWorkTwo, #itemsWorkThree');
-        $container.isotope({
-            filter: '* , all',
-            animationOptions: {
-                duration: 750,
-                easing: 'linear',
-                queue: false
-            }
-        });
-        $('.cat a').click(function() {
-            $('.cat .active').removeClass('active');
-            $(this).addClass('active');
-            var selector = $(this).attr('data-filter');
-            $container.isotope({
-                filter: selector,
-                animationOptions: {
-                    duration: 750,
-                    easing: 'linear',
-                    queue: false
-                }
-            });
-            return false;
-        });
 
-    });
-
-    /*====================================
-    Nivo Lightbox 
-    ======================================*/
-    // Agency Portfolio Popup
-    $('#itemsWork a , #itemsWorkTwo a , #itemsWorkThree a , #popup a').nivoLightbox({
-            effect: 'slideDown',  
-            keyboardNav: true,                            
-        });
-
-    $(document).ready(function() {
+$(document).ready(function() {
  
   $("#owl-demo").owlCarousel({
  
