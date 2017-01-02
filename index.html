@@ -203,8 +203,32 @@
 				</div>
 			</div>
 
-			<div id="team" class="owl-carousel owl-theme text-center">
+			<div id="team">
 
+	        	<script id="team-item-template" type="text/x-handlebars-template">
+	        		<div id="team_carousel" class="owl-carousel owl-theme text-center">
+	        		{{#each this}}
+	        			<div class="item">
+							<div class="hover-bg">
+								<div class="hover-text off">
+									<p>{{{bio}}}</p>
+								</div>
+								<img src="{{photoUrl}}" alt="member photo" class="img-responsive">
+								<div class="team-detail text-center">
+									<h3>{{name}}</h3>
+									<p class="text-uppercase">Membre de la Tribu</p>
+									<ul class="list-inline social">
+										<li><a href="https://fr.linkedin.com/in/yannickameur" class="fa fa-linkedin"></a></li>
+										<li><a href="https://twitter.com/yannickameur" class="fa fa-twitter"></a></li>
+										<li><a href="http://yannick.ameur.free.fr/dotclear/index.php" class="fa fa-rss"></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+		          	{{/each}}
+		          	</div>
+	          	</script>	
+<!--
 				<div class="item">
 					<div class="hover-bg">
 						<div class="hover-text off">
@@ -224,7 +248,7 @@
 				</div>
 
 				<div class="item">
-					<!-- Team #2 -->
+					
 					<div class="hover-bg">
 						<div class="hover-text off">
 							<p>Conduite du changement &amp; adoption agile. Scrum, RH et Organisation.</p>
@@ -243,7 +267,7 @@
 				</div>
 
 				<div class="item">
-					<!-- Team #3 -->
+					
 					<div class="hover-bg">
 						<div class="hover-text off">
 							<p>Coach agile, développeur, brownbagluncher, leanstartuper &amp; serious gamer.</p>
@@ -260,6 +284,8 @@
 						</div>
 					</div>
 				</div>
+
+			-->
 
 			</div>
 		</div>
@@ -627,8 +653,6 @@
 
 	<!-- Javascripts
     ================================================== -->
-	<script type="text/javascript" src="js/main.js"></script>
-
 	<script src="https://static.cdn.prismic.io/prismic.js"></script>
 
 	<script type="text/javascript">
@@ -636,6 +660,5 @@
             displayTribuMembers();
         });
     </script>
-
 </body>
 </html>
