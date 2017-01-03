@@ -220,56 +220,16 @@
 									<h3>{{name}}</h3>
 									<p class="text-uppercase">Membre de la Tribu</p>
 									<ul class="list-inline social">
-										<li><a href="https://fr.linkedin.com/in/yannickameur" class="fa fa-linkedin"></a></li>
-										<li><a href="https://twitter.com/yannickameur" class="fa fa-twitter"></a></li>
-										<li><a href="http://yannick.ameur.free.fr/dotclear/index.php" class="fa fa-rss"></a></li>
+										{{#each liens}}
+											<li>{{{this}}}</li>
+										{{/each}}
 									</ul>
 								</div>
 							</div>
 						</div>
 		          	{{/each}}
 		          	</div>
-	          	</script>	
-<!--
-				<div class="item">
-					<div class="hover-bg">
-						<div class="hover-text off">
-							<p>Coach Professionnel, Manager Agile, Digital Marketing, Formateur, Membre libéré de la Tribu</p>
-						</div>
-						<img src="img/team/yannick_ameur_white.png" alt="..." class="img-responsive">
-						<div class="team-detail text-center">
-							<h3>Yannick AMEUR</h3>
-							<p class="text-uppercase">Membre de la Tribu</p>
-							<ul class="list-inline social">
-								<li><a href="https://fr.linkedin.com/in/yannickameur" class="fa fa-linkedin"></a></li>
-								<li><a href="https://twitter.com/yannickameur" class="fa fa-twitter"></a></li>
-								<li><a href="http://yannick.ameur.free.fr/dotclear/index.php" class="fa fa-rss"></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="item">
-					
-					<div class="hover-bg">
-						<div class="hover-text off">
-							<p>Coach agile, développeur, brownbagluncher, leanstartuper &amp; serious gamer.</p>
-						</div>
-						<img src="img/team/Nathaniel.png" alt="..." class="img-responsive">
-						<div class="team-detail text-center">
-							<h3>Nathaniel Richand</h3>
-							<p class="text-uppercase">Membre de la Tribu</p>
-							<ul class="list-inline social">
-								<li><a href="https://fr.linkedin.com/in/nrichand" class="fa fa-linkedin"></a></li>
-								<li><a href="https://twitter.com/nrichand" class="fa fa-twitter"></a></li>
-								<li><a href="#" class="fa fa-rss"></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-			-->
-
+	          	</script>
 			</div>
 		</div>
 	</div>

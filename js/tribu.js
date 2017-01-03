@@ -6,12 +6,9 @@ function displayTribuMembers(){
         request.query(query);
 
         request.set('page', parseInt(window.location.hash.substring(1)) || 1 )
-            //.orderings('[' + orderCriteria + ']')
             .pageSize(100)
         	.submit(function(err, docs) {
             if (err) { Configuration.onPrismicError(err); return; }
-
-            console.log(docs.results);
 
             var team = $("#team-item-template").html();                      
             var team_template = Handlebars.compile(team);
@@ -27,13 +24,14 @@ function displayTribuMembers(){
 }
 
 
-function TribuMember(id, slug, name, photoUrl, extrait_bio, full_bio) {
+function TribuMember(id, slug, name, photoUrl, extrait_bio, full_bio, liens) {
     this.id = id;
     this.slug = slug;
     this.name = name;
     this.photoUrl = photoUrl;
     this.extrait_bio = extrait_bio;
     this.full_bio = full_bio;
+    this.liens = liens;
    
     this.url = function() {return "song.html?id="+this.id+"&slug="+this.slug;};
 }
@@ -46,10 +44,21 @@ function convertTribuMembersToObject(prismicResults){
         var bio = prismic_formateur.getStructuredText('formateur.bio');
         var extrait = _.take(bio.getFirstParagraph().text.split(' '), 40).join(' ');
         extrait += " ..."
-        console.log(extrait);
+
+        var liens = [];        
+        if(prismic_formateur.data['formateur.liens']){
+            var prismicLiens = prismic_formateur.data['formateur.liens'].value;
+            prismicLiens.forEach(function(prismic_lien){
+                var type = prismic_lien.site.value;
+                var url = prismic_lien.url.value.url;
+
+                var html_lien = '<a href="' + url +'" class="fa fa-' + type + '"></a>';
+                liens.push(html_lien);
+            });
+        }
 
         var member = new TribuMember(prismic_formateur.id, prismic_formateur.slug, prismic_formateur.data['formateur.name'].value,
-            prismic_formateur.data['formateur.image'].value.main.url, extrait, bio.asHtml());
+            prismic_formateur.data['formateur.image'].value.main.url, extrait, bio.asHtml(), liens);
 
         formateurObjectList.push(member);
     });
