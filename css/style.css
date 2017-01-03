@@ -656,8 +656,8 @@ ul.social li a.fa:hover { background-color: #333333 }
     display: block;
     bottom: 0;
     width: 100%;
-    height: 25%;
-    padding: 20px;
+    height: 30%;
+    padding: 10px;
     color: #ffffff;
     transition: all 0.8s;
     -webkit-transition: all 08s;

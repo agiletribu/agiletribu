@@ -13,7 +13,6 @@ function displayTribuMembers(){
 
             console.log(docs.results);
 
-
             var team = $("#team-item-template").html();                      
             var team_template = Handlebars.compile(team);
 
@@ -28,12 +27,13 @@ function displayTribuMembers(){
 }
 
 
-function TribuMember(id, slug, name, photoUrl, bio) {
+function TribuMember(id, slug, name, photoUrl, extrait_bio, full_bio) {
     this.id = id;
     this.slug = slug;
     this.name = name;
     this.photoUrl = photoUrl;
-    this.bio = bio;
+    this.extrait_bio = extrait_bio;
+    this.full_bio = full_bio;
    
     this.url = function() {return "song.html?id="+this.id+"&slug="+this.slug;};
 }
@@ -43,10 +43,13 @@ function convertTribuMembersToObject(prismicResults){
 
     prismicResults.forEach(function(prismic_formateur){
 
-        var bio = prismic_formateur.getStructuredText('formateur.bio').asHtml()
+        var bio = prismic_formateur.getStructuredText('formateur.bio');
+        var extrait = _.take(bio.getFirstParagraph().text.split(' '), 40).join(' ');
+        extrait += " ..."
+        console.log(extrait);
 
         var member = new TribuMember(prismic_formateur.id, prismic_formateur.slug, prismic_formateur.data['formateur.name'].value,
-            prismic_formateur.data['formateur.image'].value.main.url, bio);
+            prismic_formateur.data['formateur.image'].value.main.url, extrait, bio.asHtml());
 
         formateurObjectList.push(member);
     });
@@ -55,24 +58,24 @@ function convertTribuMembersToObject(prismicResults){
 }
 
 function launchCarousel(){
-  var owl = $("#team_carousel");
-  console.log(owl);
 
-  owl.owlCarousel({
-     
-      itemsCustom : [
-        [0, 1],
-        [450, 1],
-        [660, 2],
-        [700, 2],
-        [1200, 3],
-        [1600, 3]
-      ],
-      navigation : false,
-      pagination: true,
+    $("#team_carousel").owlCarousel({
+        autoPlay: 5000, 
+
+        itemsCustom : [
+            [0, 1],
+            [450, 1],
+            [660, 2],
+            [700, 2],
+            [1200, 3],
+            [1600, 3]
+        ],
+        navigation : false,
+        pagination: true
   });
 }
 
+//To navigate smoothly when clicking on the header
 function enableSmoothScroll(){
     $('a.scroll').click(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -86,4 +89,15 @@ function enableSmoothScroll(){
         }
       }
     });
+}
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+    return a;
 }

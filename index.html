@@ -43,7 +43,7 @@
     ================================================== -->
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
-<script type="text/javascript" src="js/modernizr.custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -211,9 +211,11 @@
 	        			<div class="item">
 							<div class="hover-bg">
 								<div class="hover-text off">
-									<p>{{{bio}}}</p>
+									<p>{{extrait_bio}}</p>
 								</div>
-								<img src="{{photoUrl}}" alt="member photo" class="img-responsive">
+								 
+								<img style="height: 350px; margin-left: auto; margin-right: auto;" src="{{photoUrl}}" alt="member photo" class="img-responsive">
+								
 								<div class="team-detail text-center">
 									<h3>{{name}}</h3>
 									<p class="text-uppercase">Membre de la Tribu</p>
@@ -242,25 +244,6 @@
 								<li><a href="https://fr.linkedin.com/in/yannickameur" class="fa fa-linkedin"></a></li>
 								<li><a href="https://twitter.com/yannickameur" class="fa fa-twitter"></a></li>
 								<li><a href="http://yannick.ameur.free.fr/dotclear/index.php" class="fa fa-rss"></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="item">
-					
-					<div class="hover-bg">
-						<div class="hover-text off">
-							<p>Conduite du changement &amp; adoption agile. Scrum, RH et Organisation.</p>
-						</div>
-						<img src="img/team/jas.png" alt="..." class="img-responsive">
-						<div class="team-detail text-center">
-							<h3>Jas Chong</h3>
-							<p class="text-uppercase">Membre de la Tribu</p>
-							<ul class="list-inline social">
-								<li><a href="https://www.linkedin.com/pub/jas-chong/1/1b7/293" class="fa fa-linkedin"></a></li>
-								<li><a href="https://twitter.com/Ascenthcc" class="fa fa-twitter"></a></li>
-								<li><a href="http://thedignityofwork.com/" class="fa fa-rss"></a></li>
 							</ul>
 						</div>
 					</div>
