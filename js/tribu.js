@@ -33,7 +33,7 @@ function TribuMember(id, slug, name, photoUrl, extrait_bio, full_bio, liens) {
     this.full_bio = full_bio;
     this.liens = liens;
    
-    this.url = function() {return "song.html?id="+this.id+"&slug="+this.slug;};
+    this.url = function() {return "http://formation.agiletribu.com/formateur.html?id="+this.id+"&slug="+this.slug;};
 }
 
 function convertTribuMembersToObject(prismicResults){
