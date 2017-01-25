@@ -66,10 +66,29 @@ function convertTribuMembersToObject(prismicResults){
     return formateurObjectList;
 }
 
+function injectHomePageContent(){
+    Helpers.withPrismic(function(ctx) {
+        var request = ctx.api.form("everything").ref(ctx.ref);
+
+        var query = '[[:d = at(document.type, "tribu-home")]]'
+        request.query(query);
+
+        request.set('page', parseInt(window.location.hash.substring(1)) || 1 )
+            .pageSize(100)
+            .submit(function(err, docs) {
+            if (err) { Configuration.onPrismicError(err); return; }
+
+            console.log(docs.results);
+        });
+    });
+
+}
+
 function launchCarousel(){
 
     $("#team_carousel").owlCarousel({
-        autoPlay: 5000, 
+        autoPlay: 3000,
+        stopOnHover : true,
 
         itemsCustom : [
             [0, 1],
