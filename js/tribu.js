@@ -22,10 +22,11 @@ function displayContributionsList(){
 }
 
 
-function Contribution(id, slug, titre, categorie, theme, contenu) {
+function Contribution(id, slug, titre, imageUrl, categorie, theme, contenu) {
     this.id = id;
     this.slug = slug;
     this.titre = titre;
+    this.imageUrl = imageUrl;
     this.categorie = categorie;
     this.theme = theme;
     this.contenu = contenu;
@@ -39,11 +40,18 @@ function convertContribToObject(prismicResults){
     prismicResults.forEach(function(prismic_contrib){
 
         var contenu = prismic_contrib.getStructuredText('contribution.contenu');
-        var extrait = _.take(contenu.getFirstParagraph().text.split(' '), 100).join(' ');
+
+        var imageUrl = "http://placehold.it/120x150";
+
+        if(contenu.getFirstImage()){
+            imageUrl = contenu.getFirstImage().url;
+        }
+        
+        var extrait = _.take(contenu.asText().split(' '), 100).join(' ');
         extrait += " ..."
 
         var contribution = new Contribution(prismic_contrib.id, prismic_contrib.slug, prismic_contrib.getStructuredText('contribution.titre').asHtml(),
-            prismic_contrib.data['contribution.categorie'].value, prismic_contrib.data['contribution.theme'].value, extrait);
+            imageUrl, prismic_contrib.data['contribution.categorie'].value, prismic_contrib.data['contribution.theme'].value, extrait);
 
         contributionObjectList.push(contribution);
     });
