@@ -77,70 +77,68 @@
 		<!-- /.container-fluid -->
 	</nav>
 
+<!-- Page Header
+    ================================================== -->
+    <div id="tf-header">
+        <div class="container"> <!-- container -->
+            <h1>Les contributions de la tribu</h1>
+            <h3><em>Ce que nous faisons, ce que nous vous proposons</em></h3>
+        </div><!-- end container -->
+    </div>
+
 	<!-- Service Section
     ================================================== -->
-	<div id="tf-services">
+	<div id="tf-services" class="blog">
 		<div class="container">
 
 			<div class="section-header">
 				<h2>
-					Les <span class="highlight"><strong>contributions</strong></span> de la tribu
+					<span class="highlight"><strong>Transformation </strong></span> agile
 				</h2>
 				<h5>
-					<em>Ce que nous faisons, ce que nous vous proposons</em>
+					<em></em>
 				</h5>
 				<div class="fancy">
 					<span><img src="img/favicon.ico" alt="..."></span>
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-6 text-right">
-					<div class="media service">
-						<div class="media-body">
-							<h4 class="media-heading">Un espace communautaire physique</h4>
-							<p>Un espace lumineux en plein coeur de Paris, à la disposition des communautés.</p>
-						</div>
-						<div class="media-right media-middle">
-							<i class="fa fa-map-marker"></i>
-						</div>
-					</div>
+			<div id="blog-post"> <!-- fullwidth gray background -->
+	            <div class="container"><!-- container -->
 
-					<div class="media service">
-						<div class="media-body">
-							<h4 class="media-heading">Un service d'expertise via nos communautés</h4>
-							<p>Des sociétés, des indépendants, des pros : des agilistes qualifiés qui forment notre communauté pour vous accompagner sur de la formation et sur de l'accompagnement.</p>
-						</div>
-						<div class="media-right media-middle">
-							<i class="fa fa-tags"></i>
-						</div>
-					</div>
-				</div>
+	                <div class="row"> <!-- row -->
+	                    <div id="contributions" class="col-md-10 col-md-offset-1">
 
-				<div class="col-md-6">
-					<div class="media service">
-						<div class="media-left media-middle">
-							<i class="fa fa-institution"></i>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">Un espace de formation et d'apprentissage</h4>
-							<p>Une salle à louer pour les agilistes et leurs formateurs à un tarif communautaire.</p>
-						</div>
-					</div>
+	                    	<script id="contribution-item-template" type="text/x-handlebars-template">
+	                    		{{#each this}}
+		                    	<div class="post-wrap"> <!-- Post Wrapper -->
+		                            <div class="media post"> <!-- post wrap -->
+		                                <div class="media-left"> 
+		                                    <a href="#"> <!-- link to your post single page -->
+		                                      <img class="media-object" src="http://placehold.it/120x150" alt="..."> <!-- Your Post Image -->
+		                                    </a>
+		                                </div>
+		                                <div class="media-body">
+		                                    <a href="#">
+		                                        <h5 class="media-heading"><strong>{{{titre}}}</strong></h5>
+		                                    </a>
+		                                    <p>{{contenu}}</p>
+		                                </div>
+		                            </div><!-- end post wrap -->
+		                            
+		                            <div class="post-meta"> <!-- Meta details -->
+		                                <ul class="list-inline metas pull-left"> <!-- post metas -->
+		                                	<li><a href="#">D&eacute;tails</a></li> <!-- read more link -->
+		                                </ul>                                
+		                            </div>
+		                        </div>
+		                     	{{/each}}  
+		                    </script>
 
-					<div class="media service">
-						<div class="media-left media-middle">
-							<i class="fa fa-rocket"></i>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">Plus à venir...</h4>
-							<p>Les services sont le reflet des participants de cette communauté, venez l'enrichir et étoffer notre patchwork.</p>
-						</div>
-					</div>
-					
-				</div>
-
-			</div>
+	                    </div>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div>
 
@@ -166,7 +164,7 @@
 
 	<script type="text/javascript">
         $(function() {
-            
+            displayContributionsList();
         });
     </script>
 </body>

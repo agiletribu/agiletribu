@@ -1,3 +1,56 @@
+function displayContributionsList(){
+    Helpers.withPrismic(function(ctx) {
+        var request = ctx.api.form("everything").ref(ctx.ref);
+
+        var query = '[[:d = at(document.type, "contribution")]]'
+        request.query(query);
+
+        request.set('page', parseInt(window.location.hash.substring(1)) || 1 )
+            .pageSize(100)
+            .submit(function(err, docs) {
+            if (err) { Configuration.onPrismicError(err); return; }
+
+            var contrib = $("#contribution-item-template").html();                      
+            var contrib_template = Handlebars.compile(contrib);
+
+            //Change result to an object
+            var all_contrib = convertContribToObject(docs.results);
+
+            $("#contributions").html(contrib_template(all_contrib))
+        });
+    });
+}
+
+
+function Contribution(id, slug, titre, categorie, theme, contenu) {
+    this.id = id;
+    this.slug = slug;
+    this.titre = titre;
+    this.categorie = categorie;
+    this.theme = theme;
+    this.contenu = contenu;
+   
+    this.url = function() {return "http://formation.agiletribu.com/formateur.html?id="+this.id+"&slug="+this.slug;};
+}
+
+function convertContribToObject(prismicResults){
+    contributionObjectList = [];
+
+    prismicResults.forEach(function(prismic_contrib){
+
+        var contenu = prismic_contrib.getStructuredText('contribution.contenu');
+        var extrait = _.take(contenu.getFirstParagraph().text.split(' '), 100).join(' ');
+        extrait += " ..."
+
+        var contribution = new Contribution(prismic_contrib.id, prismic_contrib.slug, prismic_contrib.getStructuredText('contribution.titre').asHtml(),
+            prismic_contrib.data['contribution.categorie'].value, prismic_contrib.data['contribution.theme'].value, extrait);
+
+        contributionObjectList.push(contribution);
+    });
+
+    return contributionObjectList;
+}
+
 function displayTribuMembers(){
 	Helpers.withPrismic(function(ctx) {
 		var request = ctx.api.form("everything").ref(ctx.ref);
