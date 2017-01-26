@@ -6,9 +6,9 @@
 <meta charset="utf-8">
 <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Les contributions de la tribu</title>
+<title>Detail - Agiletribu</title>
 <meta name="description"
-	content="Les contributions de la tribu">
+	content="Detail de la contribution de la tribu">
 <meta name="keywords" content="AgileTribu, communauté, Agile, Digital, Marketing">
 <meta name="author" content="AgileTribu.com">
 
@@ -70,6 +70,7 @@
 					<li><a href="/index.html">Accueil</a></li>
 					<li><a href="http://formation.agiletribu.com">Formations</a></li>
 					<li><a href="http://blog.agiletribu.com" target="parent">Blog</a></li>
+					<li><a href="/contribution.html">Contributions</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -81,58 +82,46 @@
     ================================================== -->
     <div id="tf-header">
         <div class="container"> <!-- container -->
-            <h1>Les contributions de la tribu</h1>
+            <h1><a href="contribution.html">Les contributions de la tribu</a></h1>
             <h3><em>Ce que nous faisons, ce que nous vous proposons</em></h3>
         </div><!-- end container -->
     </div>
 
 	<!-- Service Section
     ================================================== -->
-	<div id="tf-services" class="blog">
+	<div id="tf-services" class="blog-post">
 		<div class="container">
-
-			<div class="section-header">
-				<h2>
-					<span class="highlight"><strong>Transformation </strong></span> agile
-				</h2>
-				<h5>
-					<em></em>
-				</h5>
-				<div class="fancy">
-					<span><img src="img/favicon.ico" alt="..."></span>
-				</div>
-			</div>
 
 			<div id="blog-post"> <!-- fullwidth gray background -->
 	            <div class="container"><!-- container -->
 
 	                <div class="row"> <!-- row -->
-	                    <div id="contributions" class="col-md-10 col-md-offset-1">
+	                    <div id="contribution-detail" class="col-md-10 col-md-offset-1">
 
 	                    	<script id="contribution-item-template" type="text/x-handlebars-template">
-	                    		{{#each this}}
+
 		                    	<div class="post-wrap"> <!-- Post Wrapper -->
-		                            <div class="media post"> <!-- post wrap -->
-		                                <div class="media-left"> 
-		                                    <a href="{{url}}"> <!-- link to your post single page -->
-		                                      <img class="media-object" src="{{imageUrl}}" width="120" alt="..."> <!-- Your Post Image -->
-		                                    </a>
-		                                </div>
-		                                <div class="media-body">
-		                                    <a href="{{url}}">
-		                                        <h5 class="media-heading"><strong>{{{titre}}}</strong></h5>
-		                                    </a>
-		                                    <p>{{contenu}}</p>
-		                                </div>
-		                            </div><!-- end post wrap -->
 		                            
-		                            <div class="post-meta"> <!-- Meta details -->
-		                                <ul class="list-inline metas pull-left"> <!-- post metas -->
-		                                	<li><a href="{{url}}">D&eacute;tails</a></li> <!-- read more link -->
-		                                </ul>                                
-		                            </div>
+		                            <h4 class="media-heading"><strong>{{{titre}}}</strong></h4>		                           
+		                            <div>{{{contenu}}}</div>
+
+		                            <br>		                            
+		                        </div><!-- end Post Wrapper -->
+
+		                        <!-- Author Box -->
+								<!--
+		                        <div class="media post-author"> 
+		                            <div class="media-left media-middle">
+		                                <a href="#">
+		                                  <img class="media-object" src="http://placehold.it/90x90" alt="...">
+		                                </a>
+		                            </div>		                            
+		                            <div class="media-body">
+		                                <h5 class="media-heading">Post by <a href="#">Rudhi Design</a></h5>
+		                                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+		                            </div>                            
 		                        </div>
-		                     	{{/each}}  
+		                        -->
 		                    </script>
 
 	                    </div>
@@ -164,7 +153,7 @@
 
 	<script type="text/javascript">
         $(function() {
-            displayContributionsList();
+            displayContributionDetails();
         });
     </script>
 </body>

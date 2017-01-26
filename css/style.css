@@ -1060,7 +1060,7 @@ ul.cat li a.active {
 }
 /* Blog Section */
 #tf-blog,
-#blog-post { padding: 60px 0 }
+#blog-post { padding: 0px 60px 60px 60px; }
 #blog-post a.btn { margin: auto 0 }
 .post-wrap { position: relative }
 .media.post {

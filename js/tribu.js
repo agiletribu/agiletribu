@@ -16,22 +16,22 @@ function displayContributionsList(){
             //Change result to an object
             var all_contrib = convertContribToObject(docs.results);
 
-            $("#contributions").html(contrib_template(all_contrib))
+            $("#contributions").html(contrib_template(all_contrib));
         });
     });
 }
 
 
-function Contribution(id, slug, titre, imageUrl, categorie, theme, contenu) {
+function Contribution(id, uid, titre, imageUrl, categorie, theme, contenu) {
     this.id = id;
-    this.slug = slug;
+    this.uid = uid;
     this.titre = titre;
     this.imageUrl = imageUrl;
     this.categorie = categorie;
     this.theme = theme;
     this.contenu = contenu;
    
-    this.url = function() {return "http://formation.agiletribu.com/formateur.html?id="+this.id+"&slug="+this.slug;};
+    this.url = function() {return "/contribution-details.html?id="+ this.id + "&uid="+this.uid;};
 }
 
 function convertContribToObject(prismicResults){
@@ -41,22 +41,58 @@ function convertContribToObject(prismicResults){
 
         var contenu = prismic_contrib.getStructuredText('contribution.contenu');
 
-        var imageUrl = "http://placehold.it/120x150";
+        var imageUrl = "/img/favicon.ico";
 
         if(contenu.getFirstImage()){
             imageUrl = contenu.getFirstImage().url;
         }
-        
-        var extrait = _.take(contenu.asText().split(' '), 100).join(' ');
+
+        var extrait = _.take(contenu.asText().split(' '), 80).join(' ');
         extrait += " ..."
 
-        var contribution = new Contribution(prismic_contrib.id, prismic_contrib.slug, prismic_contrib.getStructuredText('contribution.titre').asHtml(),
+        var contribution = new Contribution(prismic_contrib.id, prismic_contrib.uid, prismic_contrib.getStructuredText('contribution.titre').asHtml(),
             imageUrl, prismic_contrib.data['contribution.categorie'].value, prismic_contrib.data['contribution.theme'].value, extrait);
 
         contributionObjectList.push(contribution);
     });
 
     return contributionObjectList;
+}
+
+function displayContributionDetails(){
+    Helpers.withPrismic(function(ctx) {
+
+        // Retrieve the document
+        var uid = Helpers.queryString['uid'];
+        var id = Helpers.queryString['id'];
+        console.log(uid);
+        console.log(id);
+
+        ctx.api.form("everything").ref(ctx.ref).query('[[:d = at(document.id, "' + id + '")]]').submit(function(err, docs) {
+
+            if (err) { Configuration.onPrismicError(err); return; }
+
+            var doc = docs.results[0];
+
+            // If there is no documents for this id
+            if(!doc) {
+                document.location = '404.html';
+            }
+
+            var contribution_data = new Contribution(doc.id, doc.uid, doc.getStructuredText('contribution.titre').asHtml(),
+                "", doc.data['contribution.categorie'].value, doc.data['contribution.theme'].value, doc.getStructuredText('contribution.contenu').asHtml());
+
+            console.log(contribution_data);
+
+            var contrib = $("#contribution-item-template").html();                      
+            var contrib_template = Handlebars.compile(contrib);
+
+            $("#contribution-detail").html(contrib_template(contribution_data));
+
+            //document.title = "AgileTribu - " + doc.data['formation.name'].value;
+        });
+    });
+
 }
 
 function displayTribuMembers(){
