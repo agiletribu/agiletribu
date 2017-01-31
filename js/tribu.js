@@ -62,7 +62,7 @@ function convertContribToObject(prismicResults){
             imageUrl = contenu.getFirstImage().url;
         }
 
-        var extrait = _.take(contenu.asText().split(' '), 80).join(' ');
+        var extrait = _.take(contenu.asText().split(' '), 50).join(' ');
         extrait += " ..."
 
         var contribution = new Contribution(prismic_contrib.id, prismic_contrib.uid, prismic_contrib.getStructuredText('contribution.titre').asHtml(),
@@ -230,7 +230,7 @@ function shuffle(a) {
     var j, x, i;
     for (i = a.length; i; i--) {
         j = Math.floor(Math.random() * i);
-        x = a[i - 1];
+        x = a[i - 1];e
         a[i - 1] = a[j];
         a[j] = x;
     }
