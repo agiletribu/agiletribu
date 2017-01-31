@@ -107,7 +107,8 @@
 	            <div class="container"><!-- container -->
 
 	                <div class="row"> <!-- row -->
-	                    <div id="contributions" class="col-md-10 col-md-offset-1">
+	                    <div id="contributions" class="col-md-6 col-md-offset-1">
+	                    </div>
 
 	                    	<script id="contribution-item-template" type="text/x-handlebars-template">
 	                    		{{#each this}}
@@ -135,7 +136,47 @@
 		                     	{{/each}}  
 		                    </script>
 
+	                    
+
+	                    <div class="col-md-4"> <!-- Blog Sidebar -->
+	                        <div class="sidebar">
+
+	                            <div class="widget search"> <!-- Search Widget -->
+	                                <div class="input-group">
+	                                    <input id="searchQuery" type="text" class="form-control" placeholder="Rechercher..."></input>
+	                                    <span id="searchButton" class="input-group-btn">
+	                                        <button class="btn btn-default" type="button"><span class="fa fa-search"></span></button>
+	                                    </span>
+	                                </div><!-- /input-group -->
+	                            </div> <!-- end Search Widget -->
+
+	                            <div class="widget categories"> <!-- Category Widget -->
+	                                <h4 class="text-uppercase">Category</h4>
+	                                <ul id ="category_filter" class="list-unstyled bullet-lists">
+	                                	<li>
+		                                	<input type="radio" name="categoryContrib" checked="checked" id="categoryall" value="">
+		                                	<label for="categoryall">&nbsp; Tous</label>
+		                                </li>
+		                                <li>
+			                            	<input type="radio" name="categoryContrib" id="categoryproduit" value="produit">
+			                            	<label for="categoryproduit">&nbsp; Produit &nbsp; <i class="fa fa-gift" aria-hidden="true"></i></label>
+			                            </li>
+			                            <li>	
+		                                	<input type="radio" name="categoryContrib" id="categorytech" value="technique">
+		                                	<label for="categorytech">&nbsp; Tech &nbsp; <i class="fa fa-code" aria-hidden="true"></i></label>
+		                                </li>
+		                                <li>	
+		                                	<input type="radio" name="categoryContrib" id="categorytransfo" value="transformation">
+		                                	<label for="categorytransfo">&nbsp; Transformation agile &nbsp; <i class="fa fa-sticky-note-o" aria-hidden="true"></i></label>
+		                                </li>
+	                                </ul>
+	                            </div>
+
+	                          
+	                        </div>
 	                    </div>
+	                    <!-- End navbar -->
+
                     </div>
                 </div>
             </div>
@@ -164,6 +205,7 @@
 
 	<script type="text/javascript">
         $(function() {
+        	addFiltersHandler();
             displayContributionsList();
         });
     </script>

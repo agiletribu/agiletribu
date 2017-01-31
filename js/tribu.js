@@ -1,8 +1,23 @@
 function displayContributionsList(){
+    var query = "[";
+
+    query += '[:d = at(document.type, "contribution")]';
+
+    var selectedCategory = $('#category_filter input:radio:checked').val();
+    if(selectedCategory){
+        query += '[:d = at(my.contribution.theme, "' + selectedCategory + '")]';        
+    }
+
+    var searchQuery = $('#searchQuery').val();
+    if(searchQuery){
+        query += '[:d = fulltext (document, "' + searchQuery + '")]';
+    }
+
+    query += "]"
+
     Helpers.withPrismic(function(ctx) {
         var request = ctx.api.form("everything").ref(ctx.ref);
 
-        var query = '[[:d = at(document.type, "contribution")]]'
         request.query(query);
 
         request.set('page', parseInt(window.location.hash.substring(1)) || 1 )
@@ -65,8 +80,6 @@ function displayContributionDetails(){
         // Retrieve the document
         var uid = Helpers.queryString['uid'];
         var id = Helpers.queryString['id'];
-        console.log(uid);
-        console.log(id);
 
         ctx.api.form("everything").ref(ctx.ref).query('[[:d = at(document.id, "' + id + '")]]').submit(function(err, docs) {
 
@@ -81,8 +94,6 @@ function displayContributionDetails(){
 
             var contribution_data = new Contribution(doc.id, doc.uid, doc.getStructuredText('contribution.titre').asHtml(),
                 "", doc.data['contribution.categorie'].value, doc.data['contribution.theme'].value, doc.getStructuredText('contribution.contenu').asHtml());
-
-            console.log(contribution_data);
 
             var contrib = $("#contribution-item-template").html();                      
             var contrib_template = Handlebars.compile(contrib);
@@ -174,8 +185,7 @@ function injectHomePageContent(){
             .pageSize(100)
             .submit(function(err, docs) {
             if (err) { Configuration.onPrismicError(err); return; }
-
-            console.log(docs.results);
+            
         });
     });
 
@@ -225,4 +235,9 @@ function shuffle(a) {
         a[j] = x;
     }
     return a;
+}
+
+function addFiltersHandler(){
+    $("#category_filter").on('click', function() { displayContributionsList(); });
+    $("#searchButton").on('click', function() { displayContributionsList(); });
 }
