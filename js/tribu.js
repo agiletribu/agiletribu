@@ -101,15 +101,21 @@ function displayContributionDetails(){
                 document.location = '404.html';
             }
 
-            var contribution_data = new Contribution(doc.id, doc.uid, doc.getStructuredText('contribution.titre').asHtml(),
-                "", doc.data['contribution.categorie'].value, doc.data['contribution.theme'].value, doc.getStructuredText('contribution.contenu').asHtml());
+            var titre = doc.getStructuredText('contribution.titre').asText();
+            var theme = doc.data['contribution.theme'].value;
+
+            var contribution_data = new Contribution(doc.id, doc.uid, titre,
+                "", doc.data['contribution.categorie'].value, theme, doc.getStructuredText('contribution.contenu').asHtml());
 
             var contrib = $("#contribution-item-template").html();                      
             var contrib_template = Handlebars.compile(contrib);
 
             $("#contribution-detail").html(contrib_template(contribution_data));
 
-            //document.title = "AgileTribu - " + doc.data['formation.name'].value;
+            document.title = "AgileTribu - " + titre;
+
+            $("#contribution_theme").html('<a href="contribution.html?theme=' + theme + '"> ' + _.upperFirst(theme) + '</a>');
+            $("#contribution_title").text(titre);
         });
     });
 
