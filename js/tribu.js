@@ -1,3 +1,12 @@
+function setFiltersByUrl(){
+    var theme = Helpers.queryString['theme'];
+    
+    if(!theme){
+        theme = "all";
+    }
+    $('#theme'+theme).prop('checked', true);
+}
+
 function displayContributionsList(){
     var query = "[";
 

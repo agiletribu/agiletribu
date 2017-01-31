@@ -156,7 +156,7 @@
 	                                <h4 class="text-uppercase">Th&egrave;me</h4>
 	                                <ul id ="theme_filter" class="list-unstyled bullet-lists">
 	                                	<li>
-		                                	<input type="radio" name="themeContrib" checked="checked" id="themeall" value="">
+		                                	<input type="radio" name="themeContrib" id="themeall" value="">
 		                                	<label for="themeall">&nbsp; Tous</label>
 		                                </li>
 		                                <li>
@@ -164,12 +164,12 @@
 			                            	<label for="themeproduit">&nbsp; Produit &nbsp; <i class="fa fa-gift" aria-hidden="true"></i></label>
 			                            </li>
 			                            <li>	
-		                                	<input type="radio" name="themeContrib" id="themetech" value="technique">
-		                                	<label for="themetech">&nbsp; Tech &nbsp; <i class="fa fa-code" aria-hidden="true"></i></label>
+		                                	<input type="radio" name="themeContrib" id="themetechnique" value="technique">
+		                                	<label for="themetechnique">&nbsp; Tech &nbsp; <i class="fa fa-code" aria-hidden="true"></i></label>
 		                                </li>
 		                                <li>	
-		                                	<input type="radio" name="themeContrib" id="themetransfo" value="transformation">
-		                                	<label for="themetransfo">&nbsp; Transformation agile &nbsp; <i class="fa fa-sticky-note-o" aria-hidden="true"></i></label>
+		                                	<input type="radio" name="themeContrib" id="themetransformation" value="transformation">
+		                                	<label for="themetransformation">&nbsp; Transformation agile &nbsp; <i class="fa fa-sticky-note-o" aria-hidden="true"></i></label>
 		                                </li>
 	                                </ul>
 	                            </div>
@@ -207,6 +207,7 @@
 
 	<script type="text/javascript">
         $(function() {
+        	setFiltersByUrl();
         	addFiltersHandler();
             displayContributionsList();
         });
