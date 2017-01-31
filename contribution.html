@@ -108,10 +108,37 @@
 	            <div class="container"><!-- container -->
 
 	                <div class="row"> <!-- row -->
-	                    <div id="contributions" class="col-md-6 col-md-offset-1">
-	                    </div>
+	                	<div class="col-md-6 col-md-offset-1">
 
-	                    	<script id="contribution-item-template" type="text/x-handlebars-template">
+							<div class="section-header">
+								<h2>
+									Les <span class="highlight"><strong>services</strong></span> de la tribu
+								</h2>						
+							</div>
+
+		                    <div id="contrib_services">
+		                    </div>
+
+		                    <div class="section-header">
+								<h2>
+									Les <span class="highlight"><strong>partages</strong></span> de la tribu
+								</h2>															
+							</div>
+
+		                    <div id="contrib_partages">
+		                    </div>
+
+		                    <div class="section-header">
+								<h2>
+									Notre contribution à la <span class="highlight"><strong>communauté</strong></span>
+								</h2>								
+							</div>
+
+		                    <div id="contrib_communautes">
+		                    </div>
+		                </div>
+	                    	
+	                    <script id="contribution-item-template" type="text/x-handlebars-template">
 	                    		{{#each this}}
 		                    	<div class="post-wrap"> <!-- Post Wrapper -->
 		                            <div class="media post"> <!-- post wrap -->
@@ -130,7 +157,7 @@
 		                            
 		                            <div class="post-meta"> <!-- Meta details -->
 		                                <ul class="list-inline metas pull-left"> <!-- post metas -->
-		                                	<li>{{theme}} &nbsp;</li>
+		                                	<li>Th&egrave;me : {{theme}} &nbsp;</li>
 		                                	<li><a href="{{url}}">D&eacute;tails</a></li> <!-- read more link -->
 		                                </ul>                                
 		                            </div>
@@ -139,7 +166,6 @@
 		                    </script>
 
 	                    
-
 	                    <div class="col-md-4"> <!-- Blog Sidebar -->
 	                        <div class="sidebar">
 

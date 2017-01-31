@@ -40,7 +40,14 @@ function displayContributionsList(){
             //Change result to an object
             var all_contrib = convertContribToObject(docs.results);
 
-            $("#contributions").html(contrib_template(all_contrib));
+
+            var services = _.filter(all_contrib, _.iteratee(['categorie', 'service']));
+            var partages = _.filter(all_contrib, _.iteratee(['categorie', 'partage']));
+            var communautes = _.filter(all_contrib, _.iteratee(['categorie', 'communaute']));
+
+            $("#contrib_services").html(contrib_template(services));
+            $("#contrib_partages").html(contrib_template(partages));
+            $("#contrib_communautes").html(contrib_template(communautes));
         });
     });
 }
