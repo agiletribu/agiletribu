@@ -90,7 +90,7 @@
     ================================================== -->
 	<div id="tf-services" class="blog">
 		<div class="container">
-
+<!--
 			<div class="section-header">
 				<h2>
 					<span class="highlight"><strong>Transformation </strong></span> agile
@@ -102,6 +102,7 @@
 					<span><img src="img/favicon.ico" alt="..."></span>
 				</div>
 			</div>
+-->
 
 			<div id="blog-post"> <!-- fullwidth gray background -->
 	            <div class="container"><!-- container -->
@@ -129,6 +130,7 @@
 		                            
 		                            <div class="post-meta"> <!-- Meta details -->
 		                                <ul class="list-inline metas pull-left"> <!-- post metas -->
+		                                	<li>{{theme}} &nbsp;</li>
 		                                	<li><a href="{{url}}">D&eacute;tails</a></li> <!-- read more link -->
 		                                </ul>                                
 		                            </div>
@@ -151,23 +153,23 @@
 	                            </div> <!-- end Search Widget -->
 
 	                            <div class="widget categories"> <!-- Category Widget -->
-	                                <h4 class="text-uppercase">Category</h4>
-	                                <ul id ="category_filter" class="list-unstyled bullet-lists">
+	                                <h4 class="text-uppercase">Th&egrave;me</h4>
+	                                <ul id ="theme_filter" class="list-unstyled bullet-lists">
 	                                	<li>
-		                                	<input type="radio" name="categoryContrib" checked="checked" id="categoryall" value="">
-		                                	<label for="categoryall">&nbsp; Tous</label>
+		                                	<input type="radio" name="themeContrib" checked="checked" id="themeall" value="">
+		                                	<label for="themeall">&nbsp; Tous</label>
 		                                </li>
 		                                <li>
-			                            	<input type="radio" name="categoryContrib" id="categoryproduit" value="produit">
-			                            	<label for="categoryproduit">&nbsp; Produit &nbsp; <i class="fa fa-gift" aria-hidden="true"></i></label>
+			                            	<input type="radio" name="themeContrib" id="themeproduit" value="produit">
+			                            	<label for="themeproduit">&nbsp; Produit &nbsp; <i class="fa fa-gift" aria-hidden="true"></i></label>
 			                            </li>
 			                            <li>	
-		                                	<input type="radio" name="categoryContrib" id="categorytech" value="technique">
-		                                	<label for="categorytech">&nbsp; Tech &nbsp; <i class="fa fa-code" aria-hidden="true"></i></label>
+		                                	<input type="radio" name="themeContrib" id="themetech" value="technique">
+		                                	<label for="themetech">&nbsp; Tech &nbsp; <i class="fa fa-code" aria-hidden="true"></i></label>
 		                                </li>
 		                                <li>	
-		                                	<input type="radio" name="categoryContrib" id="categorytransfo" value="transformation">
-		                                	<label for="categorytransfo">&nbsp; Transformation agile &nbsp; <i class="fa fa-sticky-note-o" aria-hidden="true"></i></label>
+		                                	<input type="radio" name="themeContrib" id="themetransfo" value="transformation">
+		                                	<label for="themetransfo">&nbsp; Transformation agile &nbsp; <i class="fa fa-sticky-note-o" aria-hidden="true"></i></label>
 		                                </li>
 	                                </ul>
 	                            </div>

@@ -3,9 +3,9 @@ function displayContributionsList(){
 
     query += '[:d = at(document.type, "contribution")]';
 
-    var selectedCategory = $('#category_filter input:radio:checked').val();
-    if(selectedCategory){
-        query += '[:d = at(my.contribution.theme, "' + selectedCategory + '")]';        
+    var selectedTheme = $('#theme_filter input:radio:checked').val();
+    if(selectedTheme){
+        query += '[:d = at(my.contribution.theme, "' + selectedTheme + '")]';        
     }
 
     var searchQuery = $('#searchQuery').val();
@@ -238,6 +238,6 @@ function shuffle(a) {
 }
 
 function addFiltersHandler(){
-    $("#category_filter").on('click', function() { displayContributionsList(); });
+    $("#theme_filter").on('click', function() { displayContributionsList(); });
     $("#searchButton").on('click', function() { displayContributionsList(); });
 }
