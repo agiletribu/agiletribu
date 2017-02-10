@@ -185,7 +185,7 @@ html {
     #blog-post { padding: 0px 0px 0px 0px !important; } 
 }
 
-.block-img, img {
+#contribution-detail .block-img img {
     max-width: 100%;
     max-height: 100%;
 }
