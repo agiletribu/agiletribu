@@ -135,6 +135,60 @@
 		</div>
 	</div>
 
+	<!-- Contact Section
+    ================================================== -->
+	<div id="tf-contact">
+
+		<div class="container">
+			<div class="section-header">
+				<h2>
+					Contactez nous <span class="highlight"><strong>pour en savoir plus</strong></span>
+				</h2>
+				
+				<div class="fancy">
+					<span><img src="img/favicon.ico" alt="..."></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+
+			<div class="row text-center">
+				<div class="col-md-10 col-md-offset-1">
+					<form id="contact-form" class="form" name="sentMessage" novalidate>
+
+						<div class="row">
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" autocomplete="off" class="form-control" placeholder="Votre nom *" id="name" required data-validation-required-message="Merci de renseigner votre nom.">
+									<p class="help-block text-danger"></p>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="email" autocomplete="off" class="form-control" placeholder="Votre E-mail *" id="email" required data-validation-required-message="Merci de renseigner votre courriel.">
+									<p class="help-block text-danger"></p>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<textarea class="form-control" rows="7" placeholder="Parlez nous ..." id="message" required data-validation-required-message="Merci de rédiger un message."></textarea>
+							<p class="help-block text-danger"></p>
+							<div id="success"></div>
+						</div>
+						<button type="submit" class="btn btn-primary tf-btn color">Envoyer votre message</button>
+
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
 	<!-- Footer 
     ================================================== -->
 	<div id="tf-footer">
@@ -154,6 +208,10 @@
 	<!-- Javascripts
     ================================================== -->
 	<script src="js/prismic/prismic.js"></script>
+
+	<!-- Contact page-->
+	<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
+	<script type="text/javascript" src="js/contact.js"></script>
 
 	<script type="text/javascript">
         $(function() {

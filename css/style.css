@@ -460,7 +460,12 @@ a.goto-btn { margin-right: 30px }
     margin-bottom: 30px;
 }
 /* Service Section */
-#tf-services { padding: 60px 0 }
+#tf-services { 
+    padding-top: 60px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
 .section-header {
     padding: 40px 0;
     text-align: center;
